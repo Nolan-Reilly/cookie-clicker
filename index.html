@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Clicker Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="grid-container">
+    <div class="col">
+      <div class="container">
+        <p class="points" id="points-el">0 cookies</p>
+        <p class="cps" id="cps-el">Per Second: 0.0</p>
+        <button class="cookie-btn" onclick="clickedCookie()">
+          <img src="images/cookie.png" draggable="false">
+        </button>
+      </div>
+    </div>
+    <div class="col">
+      <p class="store">Store</p>
+      <hr>
+
+      <!-- Upgrade Buttons -->
+      <div class="upgrade-container">
+          <button class="upgrade-btn display-none hover-info" id="reinforced-el" onclick="buyReinforcedIndexFinger()">
+            <img src="images/white-cursor.png" draggable="false">
+            <div class="hover-info-text upgrade-display-flex">
+              <div class="display-flex">
+                <p>Reinforced Index Finger</p>
+                <img src="images/small-cookie.png" draggable="false">
+                <p id="reinforcedCost-el"></p>
+              </div>
+              
+              <div class="upgrade-info">
+                <p>The mouse and cursors are twice as efficient</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="upgrade-btn display-none hover-info" id="carpalTunnel-el" onclick="buyCarpalTunnel()">
+            <img src="images/blue-cursor.png" draggable="false">
+            <div class="hover-info-text upgrade-display-flex">
+              <div class="display-flex">
+                <p>Carpal Tunnel Prevention Cream</p>
+                <img src="images/small-cookie.png" draggable="false">
+                <p id="carpalTunnelCost-el"></p>
+              </div>
+              
+              <div class="upgrade-info">
+                <p>The mouse and cursors are twice as efficient</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="upgrade-btn display-none hover-info" id="amibdextrous-el" onclick="buyAmibdextrous()">
+            <img src="images/red-cursor.png" draggable="false">
+            <div class="hover-info-text upgrade-display-flex">
+              <div class="display-flex">
+                <p>Amibdextrous</p>
+                <img src="images/small-cookie.png" draggable="false">
+                <p id="amibdextrousCost-el"></p>
+              </div>
+              
+              <div class="upgrade-info">
+                <p>The mouse and cursors are twice as efficient</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="upgrade-btn display-none hover-info" id="thousandFingers-el" onclick="buyThousandFingers()">
+            <img src="images/orange-cursor.png" draggable="false">
+            <div class="hover-info-text upgrade-display-flex">
+              <div class="display-flex">
+                <p>Thousand Fingers</p>
+                <img src="images/small-cookie.png" draggable="false">
+                <p id="thousandFingersCost-el"></p>
+              </div>
+              
+              <div class="upgrade-info">
+                <p>The mouse and cursors gain +0.1 for each non cursor object owned</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="upgrade-btn display-none hover-info" id="forwardsFromGrandma-el" onclick="buyForwardsFromGrandma()">
+            <img src="images/roller.png" draggable="false">
+            <div class="hover-info-text upgrade-display-flex">
+              <div class="display-flex">
+                <p>Forwards From Grandma</p>
+                <img src="images/small-cookie.png" draggable="false">
+                <p id="forwardsFromGrandmaCost-el"></p>
+              </div>
+              
+              <div class="upgrade-info">
+                <p>Grandmas are twice as efficient</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="upgrade-btn display-none hover-info" id="steelPlatedRollingPins-el" onclick="buySteelPlatedRollingPins()">
+            <img src="images/blue-roller.png" draggable="false">
+            <div class="hover-info-text upgrade-display-flex">
+              <div class="display-flex">
+                <p>Steel-Plated Rolling Pins</p>
+                <img src="images/small-cookie.png" draggable="false">
+                <p id="steelPlatedRollingPinsCost-el"></p>
+              </div>
+              
+              <div class="upgrade-info">
+                <p>Grandmas are twice as efficient</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="upgrade-btn display-none hover-info" id="lubricatedDentures-el" onclick="buyLubricatedDentures()">
+            <img src="images/dentures.png" draggable="false">
+            <div class="hover-info-text upgrade-display-flex">
+              <div class="display-flex">
+                <p>Lubricated Dentures</p>
+                <img src="images/small-cookie.png" draggable="false">
+                <p id="lubricatedDenturesCost-el"></p>
+              </div>
+              
+              <div class="upgrade-info">
+                <p>Grandmas are twice as efficient</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="upgrade-btn display-none hover-info" id="cheapHoes-el" onclick="buyCheapHoes()">
+            <img src="images/hoe.png" draggable="false">
+            <div class="hover-info-text upgrade-display-flex">
+              <div class="display-flex">
+                <p>Cheap Hoes</p>
+                <img src="images/small-cookie.png" draggable="false">
+                <p id="cheapHoesCost-el"></p>
+              </div>
+              
+              <div class="upgrade-info">
+                <p>Farms are twice as efficient</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="upgrade-btn display-none hover-info" id="fertilizer-el" onclick="buyFertilizer()">
+            <img src="images/fertilizer.png" draggable="false">
+            <div class="hover-info-text upgrade-display-flex">
+              <div class="display-flex">
+                <p>Fertilizer</p>
+                <img src="images/small-cookie.png" draggable="false">
+                <p id="fertilizerCost-el"></p>
+              </div>
+              
+              <div class="upgrade-info">
+                <p>Farms are twice as efficient</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="upgrade-btn display-none hover-info" id="sugarGas-el" onclick="buySugarGas()">
+            <img src="images/sugar.png" draggable="false">
+            <div class="hover-info-text upgrade-display-flex">
+              <div class="display-flex">
+                <p>Sugar Gas</p>
+                <img src="images/small-cookie.png" draggable="false">
+                <p id="sugarGasCost-el"></p>
+              </div>
+              
+              <div class="upgrade-info">
+                <p>Mines are twice as efficient</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="upgrade-btn display-none hover-info" id="megadrill-el" onclick="buyMegadrill()">
+            <img src="images/drill.png" draggable="false">
+            <div class="hover-info-text upgrade-display-flex">
+              <div class="display-flex">
+                <p>Megadrill</p>
+                <img src="images/small-cookie.png" draggable="false">
+                <p id="megadrillCost-el"></p>
+              </div>
+              
+              <div class="upgrade-info">
+                <p>Mines are twice as efficient</p>
+              </div>
+            </div>
+          </button>
+      </div>
+      
+      <!-- Building Buttons -->
+      <button class="buy-btn building-hover-info" onclick="incrementCursor()">
+        <p class="btn-text">Cursor</p>
+        <img class="btn-cookie" src="images/small-cookie.png" draggable="false">
+        <p class="btn-cost" id="cursor-el"></p>
+
+        <div class="building-hover-info-text upgrade-display-flex">
+          <div>
+            <p id="cursorEfficiency-el">Each cursor produces 0.1 cookies per second</p>
+            <p id="cursorsOwned-el">Cursors Owned: 0</p>
+            <p id="cursorsTotalProduction-el">Total Production: 0</p>
+          </div>
+        </div>
+
+      </button>
+
+      <button class="buy-btn building-hover-info" onclick="incrementGrandmas()">
+        <p class="btn-text">Grandma</p>
+        <img class="btn-cookie" src="images/small-cookie.png" draggable="false">
+        <p class="btn-cost" id="grandmas-el"></p>
+
+        <div class="building-hover-info-text upgrade-display-flex">
+          <div>
+            <p id="grandmaEfficiency-el">Each grandma produces 1 cookies per second</p>
+            <p id="grandmasOwned-el">Grandmas Owned: 0</p>
+            <p id="grandmasTotalProduction-el">Total Production: 0</p>
+          </div>
+        </div>
+      </button>
+
+      <button class="buy-btn building-hover-info" onclick="incrementFarm()">
+        <p class="btn-text">Farm</p>
+        <img class="btn-cookie" src="images/small-cookie.png" draggable="false">
+        <p class="btn-cost" id="farm-el"></p>
+
+        <div class="building-hover-info-text upgrade-display-flex">
+          <div>
+            <p id="farmEfficiency-el">Each farm produces 8 cookies per second</p>
+            <p id="farmsOwned-el">Farms Owned: 0</p>
+            <p id="farmsTotalProduction-el">Total Production: 0</p>
+          </div>
+        </div>
+      </button>
+
+      <button class="buy-btn building-hover-info" onclick="incrementMine()">
+        <p class="btn-text">Mine</p>
+        <img class="btn-cookie" src="images/small-cookie.png" draggable="false">
+        <p class="btn-cost" id="mine-el"></p>
+
+        <div class="building-hover-info-text upgrade-display-flex">
+          <div>
+            <p id="mineEfficiency-el">Each mine produces 47 cookies per second</p>
+            <p id="minesOwned-el">Mines Owned: 0</p>
+            <p id="minesTotalProduction-el">Total Production: 0</p>
+          </div>
+        </div>
+      </button>
+    </div>
+      
+  </div>
+  
+  <script src="main.js"></script>
+</body>
+</html>
